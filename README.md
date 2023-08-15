@@ -5,7 +5,6 @@ BillingSystemProject, n-tier mimarisi ve nesne tabanlı programlama prensiplerin
 ## İçindekiler
 
 - [Proje Hakkında](#proje-hakkında)
-- [Teknik Kurulum](#teknik-kurulum)
 - [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
 - [Katmanlar](#katmanlar)
 - [Kütüphaneler ve NuGet Paketleri](#kütüphaneler-ve-nuget-paketleri)
@@ -22,6 +21,8 @@ BillingSystemProject, aşağıdaki teknolojileri kullanmaktadır:
 - Asp.Net Core 6.0
 - Entity Framework Core
 - SQL Server
+- Autofac
+- FluentValidation
 
 ## Katmanlar
 
@@ -38,6 +39,8 @@ BillingSystemProject, aşağıdaki katmanlardan oluşmaktadır:
 Proje, aşağıdaki kütüphaneleri ve NuGet paketlerini kullanmaktadır:
 
 - Autofac: Bağımlılık enjeksiyonunu uygulamak ve bileşen ömürlerini yönetmek için.
+- Autofac.Extensions.DependencyInjection: Asp.Net Core bağımlılık enjeksiyonunu Autofac ile entegre etmek için.
+- Autofac.Extras.DynamicProxy: Dinamik proxy'leri kullanarak AOP (Aspect-Oriented Programming) prensiplerini uygulamak için.
 - FluentValidation: Düzgün doğrulama kurallarını kullanarak girdi verilerini doğrulamak için.
 - Microsoft.AspNetCore.Authentication.JwtBearer: JWT tabanlı kimlik doğrulamasını uygulamak için.
 - Microsoft.AspNetCore.Http: HTTP isteklerini ve yanıtlarını yönetmek için.
