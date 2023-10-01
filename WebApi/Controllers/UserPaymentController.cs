@@ -19,10 +19,10 @@ namespace WebApi.Controllers
             _userCardService = userCardService;
         }
 
-        [HttpPost("addcard")]
-        public IActionResult AddCard(UserCard card)
+        [HttpPost("addcart")]
+        public IActionResult AddCard(UserCard cart)
         {
-            var result = _userCardService.Add(card);
+            var result = _userCardService.Add(cart);
             if(result.Success)
             {
                 return Ok(result);
@@ -30,9 +30,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPut("update")]
-        public IActionResult EditCard(UserCard card)
+        public IActionResult EditCard(UserCard cart)
         {
-            var result = _userCardService.Update(card);
+            var result = _userCardService.Update(cart);
             if (result.Success)
             {
                 return Ok(result);
@@ -41,9 +41,9 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult DeleteCard(UserCard card)
+        public IActionResult DeleteCard(UserCard cart)
         {
-            var result = _userCardService.Delete(card);
+            var result = _userCardService.Delete(cart);
             if (result.Success)
             {
                 return Ok(result);

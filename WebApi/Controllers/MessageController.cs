@@ -20,8 +20,8 @@ namespace WebApi.Controllers
         {
             var result = _messageService.GetAll();
             if(result.Success)
-                return Ok(result.Data);
-            return BadRequest();
+                return Ok(result);
+            return BadRequest(result);
         }
         [HttpPost("add")]
         public IActionResult Add(Message message)
@@ -29,7 +29,7 @@ namespace WebApi.Controllers
             var result = _messageService.Add(message);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             return BadRequest();
         }
@@ -40,9 +40,9 @@ namespace WebApi.Controllers
             var result = _messageService.Update(message);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
 
         [HttpDelete("delete")]
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
             var result = _messageService.Delete(message);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             return BadRequest();
         }

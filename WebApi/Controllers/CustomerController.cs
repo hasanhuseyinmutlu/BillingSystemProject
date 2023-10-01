@@ -21,9 +21,9 @@ namespace WebApi.Controllers
             var result = _customerService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
@@ -32,9 +32,9 @@ namespace WebApi.Controllers
             var result = _customerService.Add(customer);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
         [HttpPut("update")]
         public IActionResult Update(Customer customer)
@@ -42,9 +42,9 @@ namespace WebApi.Controllers
             var result = _customerService.Update(customer);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
         [HttpDelete("delete")]
         public IActionResult Delete(Customer customer)

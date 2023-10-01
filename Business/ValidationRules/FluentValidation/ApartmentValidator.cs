@@ -15,7 +15,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.Type).NotEmpty().NotNull();
             RuleFor(x => x.ApartmentNumber).GreaterThanOrEqualTo(1).WithMessage("Lütfen geçerli apartman numarası giriniz ");
             RuleFor(x => x.Floor).GreaterThanOrEqualTo(0).WithMessage("hatalı kat girdiniz");
-            RuleFor(x => x.Id).GreaterThanOrEqualTo(1).WithMessage("id minimum 1 olmalı");
         }
 
     }

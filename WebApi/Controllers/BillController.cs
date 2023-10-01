@@ -21,9 +21,9 @@ namespace WebApi.Controllers
             var result = _billService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
@@ -31,8 +31,8 @@ namespace WebApi.Controllers
         {
             var result = _billService.Add(bill);
             if (result.Success)
-                return Ok(result.Message);
-            return BadRequest(result.Message);
+                return Ok(result);
+            return BadRequest(result);
         }
         [HttpPut("update")]
         public IActionResult Update(Bill bill)
@@ -40,9 +40,9 @@ namespace WebApi.Controllers
             var result = _billService.Update(bill);
             if(result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
         [HttpDelete ("delete")]
         public IActionResult Delete(Bill bill)

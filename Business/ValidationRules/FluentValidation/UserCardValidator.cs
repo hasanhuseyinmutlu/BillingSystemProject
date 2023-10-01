@@ -12,6 +12,7 @@ namespace Business.ValidationRules.FluentValidation
     {
         public UserCardValidator() 
         {
+            
             RuleFor(c => c.CardNumber).NotEmpty();
             RuleFor(c => c.CardHolder).NotEmpty();
             RuleFor(c => c.Cvv).NotEmpty();

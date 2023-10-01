@@ -20,7 +20,7 @@ namespace WebApi.Controllers
             var result = _apartmentService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result.Message);
         }
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
             var result = _apartmentService.GetCustomerAparmentDetail();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result);
         }
@@ -41,7 +41,7 @@ namespace WebApi.Controllers
             var result = _apartmentService.GetApartmentDuesDetail();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest();
         }
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
         {
             var result = _apartmentService.GetAparmentBillDetail();
             if(result.Success)
-                return Ok(result.Data);
+                return Ok(result);
 
             return BadRequest(result);
         }
@@ -62,7 +62,7 @@ namespace WebApi.Controllers
             var result = _apartmentService.Add(apartment);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             return BadRequest();
         }
@@ -73,7 +73,7 @@ namespace WebApi.Controllers
             var result = _apartmentService.Update(apartment);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             return BadRequest();
         }

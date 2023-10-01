@@ -21,9 +21,9 @@ namespace WebApi.Controllers
             var result = _duesService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpPost("add")]
         public IActionResult Add(Dues dues)
@@ -31,9 +31,9 @@ namespace WebApi.Controllers
              var result = _duesService.Add(dues);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPut("update")]
@@ -42,9 +42,9 @@ namespace WebApi.Controllers
             var result = _duesService.Update(dues);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpDelete("delete")]
@@ -53,9 +53,9 @@ namespace WebApi.Controllers
             var result = _duesService.Delete(dues);
             if(result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
     }
 }

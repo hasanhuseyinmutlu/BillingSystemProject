@@ -17,7 +17,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x=>x.FirstName).NotEmpty().NotNull();
             RuleFor(x => x.LastName).NotEmpty().NotNull();
 
-            RuleFor(x =>x.IdentityNumber).Equal(16).WithMessage("hatalı kimlik numarası");
+            RuleFor(x =>x.IdentityNumber).Matches(@"^\d{11}$").WithMessage("hatalı kimlik numarası");
             RuleFor(x =>x.IdentityNumber).NotNull().NotEmpty().WithMessage("kimlik boş bırakılamaz");
 
             RuleFor(x => x.PlateNumber).Must(ValidPlateNumber).WithMessage("Geçerli bir plaka numarası giriniz.");
