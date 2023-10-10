@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Business.Abstract
         IResult Update(Customer customer);
         IResult Delete(Customer customer);
 
+        IDataResult<List<CustomerForInfoDto>> GetCustomerById(int id);
     }
 }

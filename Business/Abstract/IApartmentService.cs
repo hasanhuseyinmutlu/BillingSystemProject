@@ -13,6 +13,7 @@ namespace Business.Abstract
     {
         IDataResult<List<AparmentDuesDetailDto>> GetApartmentDuesDetail();
         IDataResult<List<ApartmentBillDeatailDto>> GetAparmentBillDetail();
+        IDataResult<List<ApartmentBillDeatailDto>> GetApartmentBillById(int id);
         IDataResult<List<ApartmentDetailDto>> GetCustomerAparmentDetail();
         IDataResult<List<Apartment>> GetAll();
         IDataResult<Apartment> GetById(int apartmentId);

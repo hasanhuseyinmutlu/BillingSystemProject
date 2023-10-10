@@ -22,12 +22,12 @@ namespace Business.Concrete
         {
             _paymentDal = paymentDal;
         }
-        [SecuredOperation("user")]
+        //    [SecuredOperation("user")]
         public IDataResult<List<Payment>> GetAll()
         {
             return new SuccessDataResult<List<Payment>>(_paymentDal.GetAll());
         }
-        [SecuredOperation("user")]
+        //     [SecuredOperation("user")]
         public IResult Payment(Payment payment)
         {
             _paymentDal.Add (payment);

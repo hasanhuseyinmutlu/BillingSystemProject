@@ -24,30 +24,30 @@ namespace Business.Concrete
         {
             _billDal = billDal;
         }
-        [SecuredOperation("admin")]
+        //   [SecuredOperation("admin")]
         [ValidationAspect(typeof(BillValidator))]
-        [CacheRemoveAspect("IBillService.Get")]
+       // [CacheRemoveAspect("IBillService.Get")]
         public IResult Add(Bill bill)
         {
             _billDal.Add(bill);
             return new SuccessResult(Messages.BillAdded);
         }
-        [SecuredOperation("admin")]
-        [CacheRemoveAspect("IBillService.Get")]
+       // [SecuredOperation("admin")]
+       // [CacheRemoveAspect("IBillService.Get")]
         public IResult Delete(Bill bill)
         {
             _billDal.Delete(bill);
             return new SuccessResult(Messages.BillDeleted);
         }
-        [SecuredOperation("admin")]
-        [CacheAspect(duration: 10)]
+        //[SecuredOperation("admin")]
+      // [CacheAspect(duration: 10)]
         public IDataResult<List<Bill>> GetAll()
         {
             return new SuccessDataResult<List<Bill>>(_billDal.GetAll());
         }
-        [SecuredOperation("admin")]
+        //  [SecuredOperation("admin")]
         [ValidationAspect(typeof(BillValidator))]
-        [CacheRemoveAspect("IBillService.Get")]
+       // [CacheRemoveAspect("IBillService.Get")]
         public IResult Update(Bill bill)
         {
             _billDal.Update(bill);

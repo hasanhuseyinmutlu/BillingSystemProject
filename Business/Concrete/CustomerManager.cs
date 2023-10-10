@@ -7,6 +7,7 @@ using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
-        [SecuredOperation("admin")]
+        //   [SecuredOperation("admin")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
@@ -37,12 +38,18 @@ namespace Business.Concrete
             _customerDal.Delete(customer);
             return new SuccessResult(Messages.CustomerDeleted);
         }
-        [SecuredOperation("admin")]
+        //  [SecuredOperation("admin")]
         public IDataResult<List<Customer>> GetAll()
         {
             _customerDal.GetAll();
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
         }
+
+        public IDataResult<List<CustomerForInfoDto>> GetCustomerById(int id)
+        {
+            return new SuccessDataResult<List<CustomerForInfoDto>>(_customerDal.GetCustomerInfo(u => u.Id == id));
+        }
+
         [SecuredOperation("admin")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Update(Customer customer)

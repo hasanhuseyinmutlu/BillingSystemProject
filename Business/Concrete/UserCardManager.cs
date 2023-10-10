@@ -22,8 +22,8 @@ namespace Business.Concrete
         {
             _userCardDal = userCardDal;
         }
-        [SecuredOperation("user")]
-        [ValidationAspect(typeof(UserCardValidator))]
+        // [SecuredOperation("user")]
+        //[ValidationAspect(typeof(UserCardValidator))]
         public IResult Add(UserCard userCard)
         {
            _userCardDal.Add(userCard);
@@ -35,7 +35,7 @@ namespace Business.Concrete
             _userCardDal.Delete(userCard);
             return new SuccessResult(Messages.UserCardDeleted);
         }
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IDataResult<List<UserCard>> GetAll()
         {
             return new SuccessDataResult<List<UserCard>>(_userCardDal.GetAll());

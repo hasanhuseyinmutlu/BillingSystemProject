@@ -14,5 +14,7 @@ namespace DataAccess.Abstract
         List<ApartmentDetailDto> GetCustomerAparmentDetail();
         List<ApartmentBillDeatailDto> GetApartmentBillDeatail();
         List<AparmentDuesDetailDto> GetApartmentDuesDeatail();
+
+        List<ApartmentBillDeatailDto> GetApartmentBillById(int id);
     }
 }

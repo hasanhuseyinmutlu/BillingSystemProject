@@ -23,7 +23,7 @@ namespace Business.Concrete
         {
             _duesDal = duesDal;
         }
-        [SecuredOperation("admin")]
+        //   [SecuredOperation("admin")]
         [ValidationAspect(typeof(DuesValidator))]
         public IResult Add(Dues dues)
         {
@@ -36,7 +36,7 @@ namespace Business.Concrete
             _duesDal.Delete(dues);
             return new SuccessResult(Messages.DuesDeleted);
         }
-        [SecuredOperation("admin")]
+        //   [SecuredOperation("admin")]
         public IDataResult<List<Dues>> GetAll()
         {
            return new SuccessDataResult<List<Dues>>(_duesDal.GetAll());

@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,5 +46,7 @@ namespace Business.Constans
         public static string UserCardDeleted = "Card is deleted ";
         public static string UserCardAdded = " Card is Added";
         public static string UserCardUpdated = "Card is updated";
+
+        public static string BillDetailEmpty = "BillDetail is empty";
     }
 }

@@ -9,7 +9,7 @@ namespace Entities.DTOs
 {
     public class ApartmentBillDeatailDto : IDto
     {
-        public string BillTytpe { get; set; }
+        public string BillType { get; set; }
 
         public decimal BillAmount { get; set; }
 

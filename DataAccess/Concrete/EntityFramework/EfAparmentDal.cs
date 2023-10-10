@@ -53,7 +53,7 @@ namespace DataAccess.Concrate.EntityFramework
                              select new ApartmentBillDeatailDto
                              {
                                  BillAmount = bill.Amount,
-                                 BillTytpe = bill.Type,
+                                 BillType = bill.Type,
                                  BillDate = bill.BillDate.ToString("dd.MM.yyyy"),
                                  ApartmentBlock = apartment.Block,
                                  ApartmentNumber = apartment.ApartmentNumber 
@@ -79,6 +79,29 @@ namespace DataAccess.Concrate.EntityFramework
                             };
                 return reult.ToList();
             }
+        }
+
+        public List<ApartmentBillDeatailDto> GetApartmentBillById(int id)
+        {
+            using (BMSContext context = new BMSContext())
+            {
+                var result = from bill in context.Bills
+                             join apartment in context.Apartments
+                             on bill.ApartmentId equals apartment.Id
+                             where apartment.CustomerId == id
+                             select new ApartmentBillDeatailDto
+                             {
+                                 BillAmount = bill.Amount,
+                                 BillType = bill.Type,
+                                 BillDate = bill.BillDate.ToString("dd.MM.yyyy"),
+                                 ApartmentBlock = apartment.Block,
+                                 ApartmentNumber = apartment.ApartmentNumber
+                             };
+
+                return result.ToList();
+
+            }
+
         }
     }
 }

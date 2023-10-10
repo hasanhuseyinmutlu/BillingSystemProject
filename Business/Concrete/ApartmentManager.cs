@@ -26,35 +26,46 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ApartmentValidator))]
-        [SecuredOperation("aparment.add, admin")]
+       // [SecuredOperation("aparment.add, admin")]
         public IResult Add(Apartment apartment)
         {
             _apartmentDal.Add(apartment);
 
             return new SuccessResult(Messages.ApartmentAdded);
         }
-        [SecuredOperation("admin")]
+       // [SecuredOperation("admin")]
         public IResult Delete(Apartment apartment)
         {
             _apartmentDal.Delete(apartment);
             return new SuccessResult(Messages.AparmentDeleted);
         }
-        [SecuredOperation("admin")]
+       // [SecuredOperation("admin")]
         public IDataResult<List<Apartment>> GetAll()
         {
            return new SuccessDataResult<List<Apartment>>(_apartmentDal.GetAll());
         }
-        [SecuredOperation("admin")]
+       // [SecuredOperation("admin")]
         public IDataResult<List<ApartmentBillDeatailDto>> GetAparmentBillDetail()
         {
             return new SuccessDataResult<List<ApartmentBillDeatailDto>>(_apartmentDal.GetApartmentBillDeatail().ToList());
         }
-        
+
+        public IDataResult<List<ApartmentBillDeatailDto>> GetApartmentBillById(int id)
+        {
+            // business logic 
+            var customerInfo = _apartmentDal.GetApartmentBillById(id);
+            if (customerInfo == null || customerInfo.Count == 0)
+            {
+                return new ErrorDataResult<List<ApartmentBillDeatailDto>>(Messages.BillDetailEmpty);
+            }
+            return new SuccessDataResult<List<ApartmentBillDeatailDto>>(_apartmentDal.GetApartmentBillById(id));
+        }
+
         public IDataResult<List<AparmentDuesDetailDto>> GetApartmentDuesDetail()
         {
             return new SuccessDataResult<List<AparmentDuesDetailDto>>(_apartmentDal.GetApartmentDuesDeatail().ToList());
         }
-        [SecuredOperation("admin")]
+      //  [SecuredOperation("admin")]
         public IDataResult<Apartment> GetById(int apartmentId)
         {
             return new SuccessDataResult<Apartment>(_apartmentDal.Get(a => a.Id == apartmentId));
@@ -64,7 +75,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<ApartmentDetailDto>>(_apartmentDal.GetCustomerAparmentDetail().ToList());
         }
-        [SecuredOperation("admin")]
+      //  [SecuredOperation("admin")]
         [ValidationAspect(typeof(ApartmentValidator))]
         public IResult Update(Apartment apartment)
         {
