@@ -103,5 +103,24 @@ namespace DataAccess.Concrate.EntityFramework
             }
 
         }
+
+        public List<AparmentDuesDetailDto> GetApartmentDuesById(int id)
+        {
+            using (BMSContext context = new BMSContext())
+            {
+                var result = from due in context.Dues
+                             join apartment in context.Apartments
+                             on due.ApartmentId equals apartment.Id
+                             where apartment.CustomerId == id
+                             select new AparmentDuesDetailDto
+                             {
+                                 DuesAmount = due.Amount,
+                                 DuesDate = due.DuesDate.ToString("dd.MM.yyyy"),
+                                 ApartmentNumber = apartment.ApartmentNumber,
+                                 ApartmentBlock = apartment.Block
+                             };
+                return result.ToList();
+            }
+        }
     }
 }

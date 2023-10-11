@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("getall")]
-        public IActionResult GetAll() 
+        public IActionResult GetAll()
         {
             var result = _apartmentService.GetAll();
             if (result.Success)
@@ -50,7 +50,7 @@ namespace WebApi.Controllers
         public IActionResult GetApartmentBillDetail()
         {
             var result = _apartmentService.GetAparmentBillDetail();
-            if(result.Success)
+            if (result.Success)
                 return Ok(result);
 
             return BadRequest(result);
@@ -61,6 +61,18 @@ namespace WebApi.Controllers
         public IActionResult GetApartmentBillById(int id)
         {
             var result = _apartmentService.GetApartmentBillById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet]
+        [Route("getapartduebyid/{id}")]
+        public IActionResult GetApartmentDueById(int id) 
+        {
+            var result = _apartmentService.GetApartmentDuesById(id);
             if (result.Success)
             {
                 return Ok(result);

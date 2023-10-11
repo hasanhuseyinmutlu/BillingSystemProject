@@ -12,6 +12,7 @@ namespace Business.Abstract
     public interface IApartmentService
     {
         IDataResult<List<AparmentDuesDetailDto>> GetApartmentDuesDetail();
+        IDataResult<List<AparmentDuesDetailDto>> GetApartmentDuesById(int id);
         IDataResult<List<ApartmentBillDeatailDto>> GetAparmentBillDetail();
         IDataResult<List<ApartmentBillDeatailDto>> GetApartmentBillById(int id);
         IDataResult<List<ApartmentDetailDto>> GetCustomerAparmentDetail();

@@ -53,12 +53,23 @@ namespace Business.Concrete
         public IDataResult<List<ApartmentBillDeatailDto>> GetApartmentBillById(int id)
         {
             // business logic 
-            var customerInfo = _apartmentDal.GetApartmentBillById(id);
-            if (customerInfo == null || customerInfo.Count == 0)
+            var billInfo = _apartmentDal.GetApartmentBillById(id);
+            if (billInfo == null || billInfo.Count == 0)
             {
                 return new ErrorDataResult<List<ApartmentBillDeatailDto>>(Messages.BillDetailEmpty);
             }
             return new SuccessDataResult<List<ApartmentBillDeatailDto>>(_apartmentDal.GetApartmentBillById(id));
+        }
+
+        public IDataResult<List<AparmentDuesDetailDto>> GetApartmentDuesById(int id)
+        {
+            var dueInfo = _apartmentDal.GetApartmentDuesById(id);
+            if (dueInfo == null || dueInfo.Count == 0)
+            {
+                return new ErrorDataResult<List<AparmentDuesDetailDto>>(Messages.DueDetailEmpty);
+            }
+
+            return new SuccessDataResult<List<AparmentDuesDetailDto>>(_apartmentDal.GetApartmentDuesById(id));
         }
 
         public IDataResult<List<AparmentDuesDetailDto>> GetApartmentDuesDetail()

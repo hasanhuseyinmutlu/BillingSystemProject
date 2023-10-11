@@ -48,5 +48,7 @@ namespace Business.Constans
         public static string UserCardUpdated = "Card is updated";
 
         public static string BillDetailEmpty = "BillDetail is empty";
+
+        public static string DueDetailEmpty = "Dues detail is empty";
     }
 }
