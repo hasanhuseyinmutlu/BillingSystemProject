@@ -61,6 +61,17 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet]
+        [Route("getcustomercard/{id}")]
+        public IActionResult GetCustomerCard(int id)
+        {
+            var result = _userCardService.GetCustomerCard(id);
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("payment")]
         public IActionResult PaymentAdd(Payment payment)

@@ -7,6 +7,7 @@ using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,13 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<UserCard>>(_userCardDal.GetAll());
         }
+
+        public IDataResult<List<CustomerCardDetailDto>> GetCustomerCard(int id)
+        {
+
+            return new SuccessDataResult<List<CustomerCardDetailDto>>(_userCardDal.GetCustomerCard(id));
+        }
+
         [SecuredOperation("user")]
         [ValidationAspect(typeof(UserCardValidator))]
         public IResult Update(UserCard userCard)

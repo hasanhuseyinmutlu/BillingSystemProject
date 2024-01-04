@@ -5,16 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class UserCard : IEntity
+    public class CustomerCardDetailDto :IDto
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
+        public string CardName { get; set; }
         public string CardNumber { get; set; }
-        public string CardHolder { get; set; }
         public string ExpirationDate { get; set; }
         public string Cvv { get; set; }
-
     }
 }
